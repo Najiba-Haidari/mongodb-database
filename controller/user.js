@@ -16,7 +16,7 @@ async function getUsers(req, res) {
 async function getOneUser(req, res) {
     // res.send("allusers")
     try {
-        let result = await User.findById(req.params.id);
+        let result = await User.findById(req.params.userId);
         // console.log(result)
         res.send(result)
     } catch (error) {
@@ -37,7 +37,7 @@ async function addUser(req, res) {
 
 async function updateUser(req, res) {
     try {
-        const result = await User.findByIdAndUpdate({_id: req.params.id}, { username: req.body.username, email: req.body.email, password: req.body.password} , { new: true });
+        const result = await User.findByIdAndUpdate({_id: req.params.userId}, { username: req.body.username, email: req.body.email, password: req.body.password} , { new: true });
         res.send(result);
     } catch (error) {
         res.send("Error in Updating the User").status(400);
@@ -46,7 +46,7 @@ async function updateUser(req, res) {
 
 async function deleteUser(req, res) {
     try {
-        const result = await User.findByIdAndDelete({_id: req.params.id});
+        const result = await User.findByIdAndDelete({_id: req.params.userId});
         res.send(result);
     } catch (error) {
         res.send("Error in Deleting the User").status(400);

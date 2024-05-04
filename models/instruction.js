@@ -9,15 +9,11 @@ const instructionSchema = new mongoose.Schema({
         type: Number,
         // required: true,
     },
-    exerciseId: {
-        type: String,
-        required: true,
-    },
     createdAt: {
         type: Date,
         default: Date.now,
-        get: timestamp => dateFormat(timestamp)
       }
 })
 
-export default mongoose.model("Instruction", instructionSchema);
+export default instructionSchema;
+//exporting instructionSchema to add as subdocument of exerciseSchema

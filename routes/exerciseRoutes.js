@@ -1,14 +1,15 @@
 import express from "express";
-import {getAllExercises, addExercise, getOneExercise, deleteExercise} from "../controller/exercise.js";
+import {getAllExercises, addExercise, getOneExercise, deleteExercise, addInstruction, deleteInstruction} from "../controller/exercise.js";
 
 
 const router = express.Router();
 
 router.get("/", getAllExercises)
 router.post("/", addExercise);
-router.get("/:id", getOneExercise)
+router.get("/:exerciseId", getOneExercise)
 // router.put("/updateUser/:id", updateUser)
-router.delete("/:id", deleteExercise)
-
+router.delete("/:exerciseId", deleteExercise)
+router.post("/:exerciseId/instructions", addInstruction)
+router.delete("/:exerciseId/instructions/:instructionId", deleteInstruction)
 
 export default router;

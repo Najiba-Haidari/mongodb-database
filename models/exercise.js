@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import instructionSchema from "./instruction.js";
 
 const exerciseSchema = new mongoose.Schema({
     bodypart: {
@@ -22,12 +23,8 @@ const exerciseSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    instructions: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Instruction',
-        },
-    ],
+    //instructionSchema is the subdocument of exerciseSchema
+    instructions: [instructionSchema],
 
 })
 

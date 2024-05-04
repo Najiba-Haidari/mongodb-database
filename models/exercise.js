@@ -22,6 +22,12 @@ const exerciseSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    instructions: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Instruction',
+        },
+    ],
 
 })
 

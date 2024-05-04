@@ -18,16 +18,16 @@ async function getAllExercises(req, res) {
     }
 }
 
-// async function getOneUser(req, res) {
-//     // res.send("allusers")
-//     try {
-//         let result = await User.findById(req.params.id);
-//         // console.log(result)
-//         res.send(result)
-//     } catch (error) {
-//         res.send("Invalid ID").status(400);
-//     }
-// }
+async function getOneExercise(req, res) {
+    // res.send("allusers")
+    try {
+        let result = await Exercise.findById(req.params.id);
+        // console.log(result)
+        res.send(result)
+    } catch (error) {
+        res.send("Invalid ID").status(400);
+    }
+}
 
 async function addExercise(req, res) {
     try {
@@ -40,7 +40,7 @@ async function addExercise(req, res) {
             userId: req.body.userId 
         });
         const exerciseData = await User.findOneAndUpdate(
-            { _id: req.body.userId }, // Use req.body.userId instead of req.body.id
+            { _id: req.body.userId }, 
             { $push: { exercises: result._id } }
         );
 
@@ -51,6 +51,16 @@ async function addExercise(req, res) {
     }
 }
 
+async function deleteExercise(req, res) {
+    try {
+        const result = await Exercise.findByIdAndDelete({_id: req.params.id});
+        res.send(result);
+    } catch (error) {
+        res.send("Error in Deleting the User").status(400);
+    }
+}
 
 
-export { getAllExercises, addExercise};
+
+
+export { getAllExercises, addExercise, getOneExercise, deleteExercise};

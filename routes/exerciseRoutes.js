@@ -5,8 +5,8 @@ import {getAllExercises, addExercise, getOneExercise, deleteExercise, addInstruc
 const router = express.Router();
 
 router.get("/", getAllExercises)
-router.get("/:exerciseId", getOneExercise)
 router.post("/", addExercise);
+router.get("/:exerciseId", getOneExercise)
 router.delete("/:userId/:exerciseId", deleteExercise)
 router.post("/:exerciseId/instructions", addInstruction)
 router.delete("/:exerciseId/instructions/:instructionId", deleteInstruction)

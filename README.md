@@ -39,9 +39,14 @@ The application routes, please note that only GET /users and /users/:userId have
     * GET /exercises
     * POST /exercises
         * GET /exercises/:exerciseId
-        * DELETE /exercises/:exerciseId
+        * DELETE /exercises/:userId/:exerciseId
         * POST exercises/:exerciseId/instructions (add instructions to a specific exercise)
         * DELETE /exercises/:exerciseId/instructions/:instructionId ( delete a specific instruction from an exercise)
+    * GET /instructors
+    * POST /instructors
+        * GET /instructors/:instructorId
+        * DELETE /instructors/:userId/:instructorId
+     
 
 ## Technologies Used
 - Mongoose / Mongodb

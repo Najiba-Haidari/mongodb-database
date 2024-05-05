@@ -5,10 +5,8 @@ import { getAllInstructors, getOneInstructor, addInstructor, deleteInstructor } 
 const router = express.Router();
 
 router.get("/", getAllInstructors)
-router.get("/:instructorId", getOneInstructor)
 router.post("/", addInstructor);
+router.get("/:instructorId", getOneInstructor)
 router.delete("/:userId/:instructorId", deleteInstructor)
-// router.post("/:instructorId/instructions", addInstruction)
-// router.delete("/:instructorId/instructions/:instructionId", deleteInstruction)
 
 export default router;

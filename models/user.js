@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 3,
-        maxlength: 20,
+        maxlength: 15,
         index: true // index: true is for regular indexes
     },
     email: {
@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 6,
-        maxlength: 100
+        maxlength: 15
     },
     exercises: [
         {
@@ -27,6 +27,11 @@ const userSchema = new mongoose.Schema({
             ref: 'Exercise',
         },
     ],
+    instructor: 
+        [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Instructor',
+        },],
 })
 
 export default mongoose.model("User", userSchema);

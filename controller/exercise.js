@@ -55,7 +55,7 @@ async function deleteExercise(req, res) {
     try {
         const result = await Exercise.findOneAndDelete({ _id: req.params.exerciseId });
         const exerciseData = await User.findOneAndUpdate(
-            { _id: req.body.userId },
+            { _id: req.params.userId },
             { $pull: { exercises: result._id } },
             { new: true }
         );

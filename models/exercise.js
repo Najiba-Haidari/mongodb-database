@@ -5,7 +5,7 @@ const exerciseSchema = new mongoose.Schema({
     bodypart: {
         type: String,
         required: true,
-        unique: true,
+        // unique: true,
     },
     equipment: {
         type: String,

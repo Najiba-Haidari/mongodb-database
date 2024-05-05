@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import User from "./models/user.js";
 import userRoutes from "./routes/userRoutes.js";
 import exerciseRoutes from "./routes/exerciseRoutes.js"
+import instructorRoutes from "./routes/instructorRoutes.js"
 import ejs from "ejs";
 import path from "path";
 
@@ -14,6 +15,7 @@ const app = express();
 app.use(express.json());
 app.use("/users", userRoutes)
 app.use("/exercises", exerciseRoutes)
+app.use("/instructors", instructorRoutes)
 // app.engine("ejs", ejs);
 app.set("views", "./views");
 app.set("view engine", "ejs");

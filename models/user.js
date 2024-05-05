@@ -6,12 +6,12 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 3,
         maxlength: 20,
-        index: true
+        index: true // index: true is for regular indexes
     },
     email: {
         type: String,
         required: true,
-        unique: true,
+        unique: true, // or index: true , unique: index is for unique indexes
         match: [/.+@.+\..+/, 'Must match an email address!'],
         
     },
